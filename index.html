@@ -10,15 +10,20 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-12">
+				<h1 class="text-center">Launchyard Task - Frontend Developer</h1>
+			</div>
+		</div>
+		<div class="row" id="search-row">
+			<div class="col-md-8 col-md-offset-2">
 				<input type="text" class="form-control input-lg" id="search" name="search"  placeholder="search by name">
 			</div>
-			<div class="col-md-3">
-				<button id="adBtn" type="button" class="btn btn-primary" onclick="addData();">Add</button>
+			<div class="col-md-1">
+				<button id="adBtn" type="button" class="btn-lg btn btn-primary btn-block" onclick="addData();">Add</button>
 			</div>
 		</div>
 		<div class="row formRow" id="form-row">
-			<div class="col-md-9">
+			<div class="col-md-8 col-md-offset-2">
 				<div class="jumbotron">
 					<div class="row">
 						<form id="emp-form">
@@ -33,7 +38,7 @@
 			</div>
 		</div>
 		<div class="row" id="table-row">
-			<div class="col-md-9">
+			<div class="col-md-8 col-md-offset-2">
 				<div class="table-responsive">
 					<table class="table table-bordered" id="emp-table">
 						<tbody id="emp-list"></tbody>

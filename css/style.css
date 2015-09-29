@@ -1,10 +1,10 @@
 body{
-	padding-top: 100px;
+	padding-top: 20px;
 }
 .avatar{
 	width: 100%;
 }
-#table-row, .formRow{
+#table-row, .formRow,#search-row{
 	margin-top: 50px;
 }
 .name{
