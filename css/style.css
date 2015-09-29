@@ -1,0 +1,16 @@
+body{
+	padding-top: 100px;
+}
+.avatar{
+	width: 100%;
+}
+#table-row, .formRow{
+	margin-top: 50px;
+}
+.name{
+	font-size: 16px;
+	font-weight: 600;
+}
+#adBtn,#form-row,#imgfiles{
+	display: none;
+}

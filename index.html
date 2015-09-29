@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launchyard- task</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<input type="text" class="form-control input-lg" id="search" name="search"  placeholder="search by name">
+			</div>
+			<div class="col-md-3">
+				<button id="adBtn" type="button" class="btn btn-primary" onclick="addData();">Add</button>
+			</div>
+		</div>
+		<div class="row formRow" id="form-row">
+			<div class="col-md-9">
+				<div class="jumbotron">
+					<div class="row">
+						<form id="emp-form">
+							<div class="col-md-3"><input type="file"id="imgfiles" type="file" accept="image/jpeg" name="img" onchange="readURL(this)"><img class="img-thumbnail img-responsive" title="click to choose image" id="cam_photo" src="image/avatar.png" style="height:150px; width: 100%; cursor: pointer;"></div>
+							<div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="name"></div>
+							<div class="col-md-3"><input type="text" class="form-control" name="deesignation" placeholder="designation"></div>
+							<div class="col-md-2"><button type="button" class="btn btn-success">Save</button></div>
+						</form>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" id="table-row">
+			<div class="col-md-9">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="emp-table">
+						<tbody id="emp-list"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</html>
