@@ -13,36 +13,44 @@ function alphabetSort(el1, el2, index) {
 $(document)
 		.ready(
 				function() {
-					$
-							.ajax({
-								url : 'sample.json',
-								success : function(data) {
-									for ( var i in data) {
-										jsonArray = data;
-										
-										//sort data
-										jsonArray.sort(function(el1,el2){
-											  return alphabetSort(el1, el2, "name")
-										});
-										
-										//append data in a table
-										
-										var row = '<tr>'
-												+ '<td width="15%" ><img class="img-responsive avatar" src="'
-												+ jsonArray[i].avatar
-												+ '"></td>'
-												+ '<td  class="text-left"><span class="name">'
-												+ jsonArray[i].name
-												+ '</span><p class="text-mute">'
-												+ jsonArray[i].designation
-												+ '</p></td>' + '</tr>';
+					var empData = localStorage.getItem('jsonArray');
+					
+					if (empData == null || empData == '') {
+						$.ajax({
+							url : 'sample.json',
+							success : function(data) {
+								jsonArray = data;
+								localStorage.setItem('jsonArray', JSON.stringify(data));
+							}
+						});
+					}
+					else{
+						jsonArray = JSON.parse(empData);
+					}
+					for ( var i in jsonArray) {
+						// sort data
+						jsonArray.sort(function(el1,el2){
+							  return alphabetSort(el1, el2, "name")
+						});
+						
+						// append data in a table
+						
+						var row = '<tr>'
+								+ '<td width="15%" ><img class="img-responsive avatar" src="'
+								+ jsonArray[i].avatar
+								+ '"></td>'
+								+ '<td  class="text-left"><span class="name">'
+								+ jsonArray[i].name
+								+ '</span><p class="text-mute">'
+								+ jsonArray[i].designation
+								+ '</p></td>' + '</tr>';
 
-										$('#emp-list').append(row);
-									}
-								}
-							});
+						$('#emp-list').append(row);
+					}
+					
+				
 
-				});
+});
 
 function addData() {
 	$('#form-row').show();
@@ -79,6 +87,14 @@ function saveData(){
 	jsonArray.sort(function(el1,el2){
 		  return alphabetSort(el1, el2, "name")
 	});
+	
+	// store in localstorage
+	localStorage.setItem('jsonArray', JSON.stringify(jsonArray));
+	
+	
+	
+	
+	
 	$('#emp-list').empty();
 	$('#emp-table tr').show();
 	$('form#booking-form').each(function() {
