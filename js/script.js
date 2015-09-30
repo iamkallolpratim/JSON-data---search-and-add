@@ -70,23 +70,37 @@ $('#search').keyup(function() {
 
 
 
-//show a photo on image div on form
-$('#cam_photo').on("click" , function(){
-	$('#imgfiles').click();
-});
-
-function readURL(input){
-	if(input.files[0].size <= 1048576){
-	   if (input.files && input.files[0]){
-	   		var reader = new FileReader();
-	        reader.onload = function (e) {
-	            $('#cam_photo').attr('src', e.target.result).height(150).width('100%');
-	        };
-	        reader.readAsDataURL(input.files[0]);
-	    }
+function saveData(){
+	var name = $('#name').val();
+	var designation = $('#designation').val();
+	var avatar = $('#cam_photo').attr('src');
+	jsonArray.push({'name':name, 'designation':designation, 'avatar' : avatar});
+	
+	jsonArray.sort(function(el1,el2){
+		  return alphabetSort(el1, el2, "name")
+	});
+	$('#emp-list').empty();
+	$('#emp-table tr').show();
+	$('form#booking-form').each(function() {
+		this.reset();
+	});
+	$('#adBtn,#form-row').hide();
+	
+	for (var i=0; i < jsonArray.length; i++){
+		var tableRow = '<tr>'
+			+ '<td width="15%" ><img class="img-responsive avatar" src="'
+			+ jsonArray[i].avatar
+			+ '"></td>'
+			+ '<td  class="text-left"><span class="name">'
+			+ jsonArray[i].name
+			+ '</span><p class="text-mute">'
+			+ jsonArray[i].designation
+			+ '</p></td>' + '</tr>';
+		$('#emp-list').append(tableRow);
 	}
-	else{
-		alert('File is too large. Upload file less than 1MB');
-	}
+	
+	
+	
+	
 }
 

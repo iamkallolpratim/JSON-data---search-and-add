@@ -27,10 +27,10 @@
 				<div class="jumbotron">
 					<div class="row">
 						<form id="emp-form">
-							<div class="col-md-3"><input type="file"id="imgfiles" type="file" accept="image/jpeg" name="img" onchange="readURL(this)"><img class="img-thumbnail img-responsive" title="click to choose image" id="cam_photo" src="image/avatar.png" style="height:150px; width: 100%; cursor: pointer;"></div>
-							<div class="col-md-3"><input type="text" class="form-control" name="name" placeholder="name"></div>
-							<div class="col-md-3"><input type="text" class="form-control" name="deesignation" placeholder="designation"></div>
-							<div class="col-md-2"><button type="button" class="btn btn-success">Save</button></div>
+							<div class="col-md-3"><img class="img-thumbnail img-responsive"  id="cam_photo" src="image/avatar.png" style="height:150px; width: 100%; cursor: pointer;"></div>
+							<div class="col-md-3"><input type="text" class="form-control" id="name" name="name" placeholder="name"></div>
+							<div class="col-md-3"><input type="text" class="form-control" id="designation" name="designation" placeholder="designation"></div>
+							<div class="col-md-2"><button type="button" class="btn btn-success" onclick="saveData();">Save</button></div>
 						</form>
 						
 					</div>
